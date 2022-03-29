@@ -1,0 +1,30 @@
+@font-face {
+  font-family: adobe-arabic;
+  src: url(../../src/assets/fonts/AdobeArabic/AdobeArabic-Regular.otf);
+  font-style: normal;
+}
+@font-face {
+  font-family: adobe-arabic;
+  src: url(../../src/assets/fonts/AdobeArabic/AdobeArabic-Italic.otf);
+  font-style: italic;
+}
+
+@font-face {
+  font-family: adobe-arabic;
+  src: url(../../src/assets/fonts/AdobeArabic/AdobeArabic-Bold.otf);
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: adobe-arabic;
+  src: url(../../src/assets/fonts/AdobeArabic/AdobeArabic-BoldItalic.otf);
+  font-style: italic;
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: iran-marker;
+  src: url(../../src/assets/fonts/IranMarker/IRANMarker.ttf);
+  font-style: normal;
+  font-weight: normal;
+}
