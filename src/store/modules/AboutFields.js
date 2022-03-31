@@ -37,7 +37,7 @@ export const aboutFields = {
       ctx.commit("setLoading", true);
 
       const res = await axios.get(
-        "http://api-anjoman-eslami.runflare.run/api/v1/about?sort=-index",
+        "https://api-anjoman-eslami.runflare.run/api/v1/about?sort=-index",
         {
           withCredentials: true,
         }
@@ -62,7 +62,7 @@ export const aboutFields = {
       ctx.commit("setLoading", true);
 
       const res = await axios.delete(
-        `http://api-anjoman-eslami.runflare.run/api/v1/about/${id}`,
+        `https://api-anjoman-eslami.runflare.run/api/v1/about/${id}`,
         { withCredentials: true }
       );
 
@@ -82,7 +82,7 @@ export const aboutFields = {
       ctx.commit("setLoading", true);
 
       const res = await axios.put(
-        `http://api-anjoman-eslami.runflare.run/v1/about/${id}`,
+        `https://api-anjoman-eslami.runflare.run/v1/about/${id}`,
         { title, body, index },
         {
           withCredentials: true,
@@ -107,7 +107,7 @@ export const aboutFields = {
       ctx.commit("setLoading", true);
 
       const res = await axios.post(
-        `http://api-anjoman-eslami.runflare.run/api/v1/about`,
+        `https://api-anjoman-eslami.runflare.run/api/v1/about`,
         { title, body, index },
         {
           withCredentials: true,

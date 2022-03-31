@@ -49,7 +49,7 @@ export const events = {
       }
 
       const res = await axios.get(
-        `http://api-anjoman-eslami.runflare.run/api/v1/events?limit=${limit}&page=${page}&sort=-createdAt&select=title,titleImage,createdAt,startDate,endDate,status`
+        `https://api-anjoman-eslami.runflare.run/api/v1/events?limit=${limit}&page=${page}&sort=-createdAt&select=title,titleImage,createdAt,startDate,endDate,status`
       );
       const data = res.data;
 
@@ -72,7 +72,7 @@ export const events = {
       ctx.commit("setLoading", true);
 
       const res = await axios.get(
-        `http://api-anjoman-eslami.runflare.run/api/v1/events/${id}`
+        `https://api-anjoman-eslami.runflare.run/api/v1/events/${id}`
       );
       const data = res.data;
 
@@ -105,7 +105,7 @@ export const events = {
       ctx.commit("setLoading", true);
 
       const res = await axios.put(
-        `http://api-anjoman-eslami.runflare.run/api/v1/events/${id}`,
+        `https://api-anjoman-eslami.runflare.run/api/v1/events/${id}`,
         {
           title,
           body,
@@ -130,7 +130,7 @@ export const events = {
       ctx.commit("setLoading", true);
 
       const res = await axios.delete(
-        `http://api-anjoman-eslami.runflare.run/api/v1/events/${id}`,
+        `https://api-anjoman-eslami.runflare.run/api/v1/events/${id}`,
         { withCredentials: true }
       );
 
@@ -155,7 +155,7 @@ export const events = {
       data.append("file", fileData);
 
       const res = await axios.put(
-        `http://api-anjoman-eslami.runflare.run/api/v1/events/${id}/photo`,
+        `https://api-anjoman-eslami.runflare.run/api/v1/events/${id}/photo`,
         data,
         {
           withCredentials: true,
@@ -188,7 +188,7 @@ export const events = {
       ctx.commit("setLoading", true);
 
       const res = await axios.post(
-        `http://api-anjoman-eslami.runflare.run/api/v1/events`,
+        `https://api-anjoman-eslami.runflare.run/api/v1/events`,
         {
           title,
           body,

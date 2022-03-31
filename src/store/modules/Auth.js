@@ -60,7 +60,7 @@ export const auth = {
       ctx.commit("setLoading", true);
 
       const tokenRes = await axios.post(
-        "http://api-anjoman-eslami.runflare.run/api/v1/auth/login",
+        "https://api-anjoman-eslami.runflare.run/api/v1/auth/login",
         {
           email: email,
           password: password,
@@ -71,7 +71,7 @@ export const auth = {
       );
 
       const currentUserRes = await axios.get(
-        "http://api-anjoman-eslami.runflare.run/api/v1/auth/me",
+        "https://api-anjoman-eslami.runflare.run/api/v1/auth/me",
         { withCredentials: true }
       );
 
@@ -89,7 +89,7 @@ export const auth = {
       ctx.commit("setLoading", true);
 
       await axios.get(
-        "http://api-anjoman-eslami.runflare.run/api/v1/auth/logout",
+        "https://api-anjoman-eslami.runflare.run/api/v1/auth/logout",
         {
           withCredentials: true,
         }
