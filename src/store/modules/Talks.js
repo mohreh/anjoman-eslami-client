@@ -50,7 +50,7 @@ export const talks = {
       ctx.commit("setLoading", true);
 
       const res = await axios.get(
-        `http://localhost:5000/api/v1/talks?limit=${limit}&page=${page}&sort=-createdAt&select=title,persons.image.url`
+        `http://api-anjoman-eslami.runflare.run/api/v1/talks?limit=${limit}&page=${page}&sort=-createdAt&select=title,persons.image.url`
       );
       const data = res.data;
 
@@ -72,7 +72,9 @@ export const talks = {
 
       ctx.commit("setLoading", true);
 
-      const res = await axios.get(`http://localhost:5000/api/v1/talks/${id}`);
+      const res = await axios.get(
+        `http://api-anjoman-eslami.runflare.run/api/v1/talks/${id}`
+      );
 
       const data = res.data;
       ctx.commit("setSingleTalk", { data: data.data, id });
@@ -97,7 +99,7 @@ export const talks = {
       ctx.commit("setLoading", true);
 
       const res = await axios.put(
-        `http://localhost:5000/api/v1/talks/${id}`,
+        `http://api-anjoman-eslami.runflare.run/api/v1/talks/${id}`,
         {
           title,
           description,
@@ -125,7 +127,7 @@ export const talks = {
       ctx.commit("setLoading", true);
 
       const res = await axios.post(
-        `http://localhost:5000/api/v1/talks`,
+        `http://api-anjoman-eslami.runflare.run/api/v1/talks`,
         {
           title,
           description,
@@ -158,7 +160,7 @@ export const talks = {
       data.append("index", index);
 
       const res = await axios.put(
-        `http://localhost:5000/api/v1/talks/${id}/photo`,
+        `http://api-anjoman-eslami.runflare.run/api/v1/talks/${id}/photo`,
         data,
         {
           withCredentials: true,
@@ -180,7 +182,7 @@ export const talks = {
       ctx.commit("setLoading", true);
 
       const res = await axios.delete(
-        `http://localhost:5000/api/v1/talks/${id}`,
+        `http://api-anjoman-eslami.runflare.run/api/v1/talks/${id}`,
         {
           withCredentials: true,
         }

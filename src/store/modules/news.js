@@ -51,7 +51,7 @@ export const news = {
       ctx.commit("setLoading", true);
 
       const res = await axios.get(
-        `http://localhost:5000/api/v1/news?select=title,titleImage.url,titleImage.thumbnailUrl,createdAt&limit=${limit}&page=${page}&sort=-createdAt`
+        `http://api-anjoman-eslami.runflare.run/api/v1/news?select=title,titleImage.url,titleImage.thumbnailUrl,createdAt&limit=${limit}&page=${page}&sort=-createdAt`
       );
 
       const data = res.data;
@@ -74,7 +74,9 @@ export const news = {
 
       ctx.commit("setLoading", true);
 
-      const res = await axios.get(`http://localhost:5000/api/v1/news/${id}`);
+      const res = await axios.get(
+        `http://api-anjoman-eslami.runflare.run/api/v1/news/${id}`
+      );
 
       const data = res.data;
       ctx.commit("setSingleNews", { data: data.data, id });
@@ -96,7 +98,7 @@ export const news = {
       ctx.commit("setLoading", true);
 
       const res = await axios.put(
-        `http://localhost:5000/api/v1/news/${id}`,
+        `http://api-anjoman-eslami.runflare.run/api/v1/news/${id}`,
         {
           title,
           body,
@@ -121,7 +123,7 @@ export const news = {
       ctx.commit("setLoading", true);
 
       const res = await axios.delete(
-        `http://localhost:5000/api/v1/news/${id}`,
+        `http://api-anjoman-eslami.runflare.run/api/v1/news/${id}`,
         {
           withCredentials: true,
         }
@@ -149,7 +151,7 @@ export const news = {
       data.append("file", fileData);
 
       const res = await axios.put(
-        `http://localhost:5000/api/v1/news/${id}/photo`,
+        `http://api-anjoman-eslami.runflare.run/api/v1/news/${id}/photo`,
         data,
         {
           withCredentials: true,
@@ -174,7 +176,7 @@ export const news = {
       ctx.commit("setLoading", true);
 
       const res = await axios.post(
-        `http://localhost:5000/api/v1/news`,
+        `http://api-anjoman-eslami.runflare.run/api/v1/news`,
         { title, body, createdAt },
         { withCredentials: true }
       );
