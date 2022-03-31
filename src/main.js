@@ -1,4 +1,4 @@
-import { createApp } from "vue";
+import { createApp, createSSRApp } from "vue";
 import cors from "cors";
 import App from "./App.vue";
 import { store } from "./store/store";
@@ -7,7 +7,7 @@ import CKEditor from "@ckeditor/ckeditor5-vue";
 import { router } from "./router/router";
 import "./index.css";
 
-const app = createApp(App);
+const app = createSSRApp(App);
 
 app.use(cors);
 app.use(VueCookieNext);
