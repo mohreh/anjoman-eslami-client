@@ -50,7 +50,7 @@ export const talks = {
       ctx.commit("setLoading", true);
 
       const res = await axios.get(
-        `https://api-anjoman-eslami.runflare.run/api/v1/talks?limit=${limit}&page=${page}&sort=-createdAt&select=title,persons.image.url`
+        `https://api-anjoman-eslami.onrender.com/api/v1/talks?limit=${limit}&page=${page}&sort=-createdAt&select=title,persons.image.url`,
       );
       const data = res.data;
 
@@ -73,7 +73,7 @@ export const talks = {
       ctx.commit("setLoading", true);
 
       const res = await axios.get(
-        `https://api-anjoman-eslami.runflare.run/api/v1/talks/${id}`
+        `https://api-anjoman-eslami.onrender.com/api/v1/talks/${id}`,
       );
 
       const data = res.data;
@@ -84,7 +84,7 @@ export const talks = {
 
     async updateTalk(
       ctx,
-      { id, body, title, description, persons, createdAt }
+      { id, body, title, description, persons, createdAt },
     ) {
       const talk = ctx.state.singleTalks;
 
@@ -99,7 +99,7 @@ export const talks = {
       ctx.commit("setLoading", true);
 
       const res = await axios.put(
-        `https://api-anjoman-eslami.runflare.run/api/v1/talks/${id}`,
+        `https://api-anjoman-eslami.onrender.com/api/v1/talks/${id}`,
         {
           title,
           description,
@@ -109,7 +109,7 @@ export const talks = {
         },
         {
           withCredentials: true,
-        }
+        },
       );
 
       talks[id] = res.data.data;
@@ -127,7 +127,7 @@ export const talks = {
       ctx.commit("setLoading", true);
 
       const res = await axios.post(
-        `https://api-anjoman-eslami.runflare.run/api/v1/talks`,
+        `https://api-anjoman-eslami.onrender.com/api/v1/talks`,
         {
           title,
           description,
@@ -137,7 +137,7 @@ export const talks = {
         },
         {
           withCredentials: true,
-        }
+        },
       );
 
       ctx.commit("setSingleTalk", {
@@ -160,14 +160,14 @@ export const talks = {
       data.append("index", index);
 
       const res = await axios.put(
-        `https://api-anjoman-eslami.runflare.run/api/v1/talks/${id}/photo`,
+        `https://api-anjoman-eslami.onrender.com/api/v1/talks/${id}/photo`,
         data,
         {
           withCredentials: true,
           header: {
             "Content-Type": "multipart/form-data",
           },
-        }
+        },
       );
 
       ctx.commit("setLoading", false);
@@ -182,10 +182,10 @@ export const talks = {
       ctx.commit("setLoading", true);
 
       const res = await axios.delete(
-        `https://api-anjoman-eslami.runflare.run/api/v1/talks/${id}`,
+        `https://api-anjoman-eslami.onrender.com/api/v1/talks/${id}`,
         {
           withCredentials: true,
-        }
+        },
       );
 
       ctx.commit("setLoading", false);

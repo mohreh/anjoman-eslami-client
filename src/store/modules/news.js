@@ -51,7 +51,7 @@ export const news = {
       ctx.commit("setLoading", true);
 
       const res = await axios.get(
-        `https://api-anjoman-eslami.runflare.run/api/v1/news?select=title,titleImage.url,titleImage.thumbnailUrl,createdAt&limit=${limit}&page=${page}&sort=-createdAt`
+        `https://api-anjoman-eslami.onrender.com/api/v1/news?select=title,titleImage.url,titleImage.thumbnailUrl,createdAt&limit=${limit}&page=${page}&sort=-createdAt`,
       );
 
       const data = res.data;
@@ -75,7 +75,7 @@ export const news = {
       ctx.commit("setLoading", true);
 
       const res = await axios.get(
-        `https://api-anjoman-eslami.runflare.run/api/v1/news/${id}`
+        `https://api-anjoman-eslami.onrender.com/api/v1/news/${id}`,
       );
 
       const data = res.data;
@@ -98,7 +98,7 @@ export const news = {
       ctx.commit("setLoading", true);
 
       const res = await axios.put(
-        `https://api-anjoman-eslami.runflare.run/api/v1/news/${id}`,
+        `https://api-anjoman-eslami.onrender.com/api/v1/news/${id}`,
         {
           title,
           body,
@@ -106,7 +106,7 @@ export const news = {
         },
         {
           withCredentials: true,
-        }
+        },
       );
 
       ctx.commit("setSingleNews", { data: res.data.data, id });
@@ -123,10 +123,10 @@ export const news = {
       ctx.commit("setLoading", true);
 
       const res = await axios.delete(
-        `https://api-anjoman-eslami.runflare.run/api/v1/news/${id}`,
+        `https://api-anjoman-eslami.onrender.com/api/v1/news/${id}`,
         {
           withCredentials: true,
-        }
+        },
       );
 
       console.log(res);
@@ -151,14 +151,14 @@ export const news = {
       data.append("file", fileData);
 
       const res = await axios.put(
-        `https://api-anjoman-eslami.runflare.run/api/v1/news/${id}/photo`,
+        `https://api-anjoman-eslami.onrender.com/api/v1/news/${id}/photo`,
         data,
         {
           withCredentials: true,
           header: {
             "Content-Type": "multipart/form-data",
           },
-        }
+        },
       );
 
       ctx.commit("setLoading", false);
@@ -176,9 +176,9 @@ export const news = {
       ctx.commit("setLoading", true);
 
       const res = await axios.post(
-        `https://api-anjoman-eslami.runflare.run/api/v1/news`,
+        `https://api-anjoman-eslami.onrender.com/api/v1/news`,
         { title, body, createdAt },
-        { withCredentials: true }
+        { withCredentials: true },
       );
 
       ctx.commit("setLoading", false);

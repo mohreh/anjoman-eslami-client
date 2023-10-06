@@ -48,7 +48,7 @@ export const statements = {
       }
 
       const res = await axios.get(
-        `https://api-anjoman-eslami.runflare.run/api/v1/statements?limit=${limit}&page=${page}&sort=-createdAt&select=createdAt,title`
+        `https://api-anjoman-eslami.onrender.com/api/v1/statements?limit=${limit}&page=${page}&sort=-createdAt&select=createdAt,title`,
       );
       const data = res.data;
 
@@ -68,7 +68,7 @@ export const statements = {
       ctx.commit("setLoading", true);
 
       const res = await axios.get(
-        `https://api-anjoman-eslami.runflare.run/api/v1/statements/${id}`
+        `https://api-anjoman-eslami.onrender.com/api/v1/statements/${id}`,
       );
 
       const data = res.data;
@@ -88,11 +88,11 @@ export const statements = {
       ctx.commit("setLoading", true);
 
       const res = await axios.put(
-        `https://api-anjoman-eslami.runflare.run/api/v1/statements/${id}`,
+        `https://api-anjoman-eslami.onrender.com/api/v1/statements/${id}`,
         { title, body, createdAt },
         {
           withCredentials: true,
-        }
+        },
       );
 
       ctx.commit("setSingleStatement", { data: res.data.data, id });
@@ -108,10 +108,10 @@ export const statements = {
       ctx.commit("setLoading", true);
 
       const res = await axios.delete(
-        `https://api-anjoman-eslami.runflare.run/api/v1/statements/${id}`,
+        `https://api-anjoman-eslami.onrender.com/api/v1/statements/${id}`,
         {
           withCredentials: true,
-        }
+        },
       );
 
       delete statements[id];
@@ -127,11 +127,11 @@ export const statements = {
       ctx.commit("setLoading", true);
 
       const res = await axios.post(
-        `https://api-anjoman-eslami.runflare.run/api/v1/statements`,
+        `https://api-anjoman-eslami.onrender.com/api/v1/statements`,
         { title, body, createdAt },
         {
           withCredentials: true,
-        }
+        },
       );
 
       ctx.commit("setLoading", false);

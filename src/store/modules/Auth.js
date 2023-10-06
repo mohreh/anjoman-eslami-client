@@ -59,40 +59,46 @@ export const auth = {
       const { email, password } = credential;
       ctx.commit("setLoading", true);
 
-      const tokenRes = await axios.post(
-        "https://api-anjoman-eslami.runflare.run/api/v1/auth/login",
-        {
-          email: email,
-          password: password,
-        },
-        {
-          withCredentials: true,
-        }
-      );
+      try {
+        const tokenRes = await axios.post(
+          "https://api-anjoman-eslami.onrender.com/api/v1/auth/login",
+          {
+            email: email,
+            password: password,
+          },
+          {
+            withCredentials: true,
+          },
+        );
+        console.log(tokenRes);
 
-      const currentUserRes = await axios.get(
-        "https://api-anjoman-eslami.runflare.run/api/v1/auth/me",
-        { withCredentials: true }
-      );
+        ctx.commit("setAuthVal", { key: "token", value: tokenRes.data.token });
 
-      ctx.commit("setAuthVal", { key: "token", value: tokenRes.data.token });
-      ctx.commit("setAuthVal", {
-        key: "currentUser",
-        value: currentUserRes.data.data,
-      });
-      ctx.commit("setLoading", false);
+        const currentUserRes = await axios.get(
+          "https://api-anjoman-eslami.onrender.com/api/v1/auth/me",
+          { withCredentials: true },
+        );
 
-      ctx.commit("setRole", currentUserRes.data.data.role);
+        ctx.commit("setAuthVal", {
+          key: "currentUser",
+          value: currentUserRes.data.data,
+        });
+        ctx.commit("setLoading", false);
+
+        ctx.commit("setRole", currentUserRes.data.data.role);
+      } catch (error) {
+        console.log(error.message);
+      }
     },
 
     async logout(ctx) {
       ctx.commit("setLoading", true);
 
       await axios.get(
-        "https://api-anjoman-eslami.runflare.run/api/v1/auth/logout",
+        "https://api-anjoman-eslami.onrender.com/api/v1/auth/logout",
         {
           withCredentials: true,
-        }
+        },
       );
 
       localStorage.clear();

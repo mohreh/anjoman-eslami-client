@@ -49,7 +49,7 @@ export const events = {
       }
 
       const res = await axios.get(
-        `https://api-anjoman-eslami.runflare.run/api/v1/events?limit=${limit}&page=${page}&sort=-createdAt&select=title,titleImage,createdAt,startDate,endDate,status`
+        `https://api-anjoman-eslami.onrender.com/api/v1/events?limit=${limit}&page=${page}&sort=-createdAt&select=title,titleImage,createdAt,startDate,endDate,status`,
       );
       const data = res.data;
 
@@ -72,7 +72,7 @@ export const events = {
       ctx.commit("setLoading", true);
 
       const res = await axios.get(
-        `https://api-anjoman-eslami.runflare.run/api/v1/events/${id}`
+        `https://api-anjoman-eslami.onrender.com/api/v1/events/${id}`,
       );
       const data = res.data;
 
@@ -86,7 +86,7 @@ export const events = {
 
     async updateEvent(
       ctx,
-      { id, createdAt, title, body, startDate, endDate, status }
+      { id, createdAt, title, body, startDate, endDate, status },
     ) {
       const events = ctx.state.singleEvent;
 
@@ -105,7 +105,7 @@ export const events = {
       ctx.commit("setLoading", true);
 
       const res = await axios.put(
-        `https://api-anjoman-eslami.runflare.run/api/v1/events/${id}`,
+        `https://api-anjoman-eslami.onrender.com/api/v1/events/${id}`,
         {
           title,
           body,
@@ -114,7 +114,7 @@ export const events = {
           createdAt,
           status,
         },
-        { withCredentials: true }
+        { withCredentials: true },
       );
 
       ctx.commit("setLoading", false);
@@ -130,8 +130,8 @@ export const events = {
       ctx.commit("setLoading", true);
 
       const res = await axios.delete(
-        `https://api-anjoman-eslami.runflare.run/api/v1/events/${id}`,
-        { withCredentials: true }
+        `https://api-anjoman-eslami.onrender.com/api/v1/events/${id}`,
+        { withCredentials: true },
       );
 
       delete events[id];
@@ -155,14 +155,14 @@ export const events = {
       data.append("file", fileData);
 
       const res = await axios.put(
-        `https://api-anjoman-eslami.runflare.run/api/v1/events/${id}/photo`,
+        `https://api-anjoman-eslami.onrender.com/api/v1/events/${id}/photo`,
         data,
         {
           withCredentials: true,
           header: {
             "Content-Type": "multipart/form-data",
           },
-        }
+        },
       );
 
       ctx.commit("setLoading", false);
@@ -172,7 +172,7 @@ export const events = {
 
     async addEvent(
       ctx,
-      { title, body, createdAt, startDate, endDate, status }
+      { title, body, createdAt, startDate, endDate, status },
     ) {
       if (!status) status = "inprograss";
       if (!createdAt) createdAt = new Date(Date.now());
@@ -188,7 +188,7 @@ export const events = {
       ctx.commit("setLoading", true);
 
       const res = await axios.post(
-        `https://api-anjoman-eslami.runflare.run/api/v1/events`,
+        `https://api-anjoman-eslami.onrender.com/api/v1/events`,
         {
           title,
           body,
@@ -199,7 +199,7 @@ export const events = {
         },
         {
           withCredentials: true,
-        }
+        },
       );
 
       console.log(res);
